@@ -3,14 +3,12 @@
 #include "squirrel.hpp"
 
 int main() {
-    // Testing empty tree
     std::cout << "Testing empty tree." << std::endl;
     BinaryTree emptyTree;
     std::cout << "Traversing empty tree:" << std::endl;
     emptyTree.traverse(emptyTree.get_root());
     std::cout << "Empty tree test completed.\n" << std::endl;
 
-    // Testing single tree
     std::cout << "Testing single tree." << std::endl;
     Squirrel soloSquirrel("Lonely Squirrel");
     BinaryTree singleTree(soloSquirrel);
@@ -18,7 +16,6 @@ int main() {
     singleTree.traverse(singleTree.get_root());
     std::cout << "Single node tree test completed.\n" << std::endl;
 
-    // Testing regular tree
     std::cout << "Testing regular tree." << std::endl;
     Squirrel cheeks("Cheeks");
     Squirrel squeaks("Squeaks");
@@ -35,7 +32,6 @@ int main() {
     tree.traverse(root);
     std::cout << "Regular tree test completed.\n" << std::endl;
 
-    // Testing unbalanced tree
     std::cout << "Testing unbalanced tree." << std::endl;
     Squirrel rootSquirrel("Cheeks");
     Squirrel rightSquirrel1("Squeaks");
@@ -52,7 +48,6 @@ int main() {
     tree.traverse(unbalancedRoot);
     std::cout << "Unbalanced tree test completed.\n" << std::endl;
 
-    // Testing large tree
     std::cout << "Testing large tree." << std::endl;
     Squirrel cheeks1("Cheeks");
     Squirrel squeaks2("Squeaks");
