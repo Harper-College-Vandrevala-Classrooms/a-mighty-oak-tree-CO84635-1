@@ -1,30 +1,30 @@
 #include <iostream>
-#include "oak_tree.hpp"
+#include "oaktree.hpp"
 #include "squirrel.hpp"
 
 int main() {
     std::cout << "Testing empty tree." << std::endl;
-    binary_tree empty_tree;
+    BinaryTree empty_tree;
     std::cout << "Traversing empty tree:" << std::endl;
     empty_tree.traverse(empty_tree.get_root());
     std::cout << "Empty tree test completed.\n" << std::endl;
 
     std::cout << "Testing single tree." << std::endl;
-    squirrel solo_squirrel("Lonely Squirrel");
-    binary_tree single_tree(solo_squirrel);
+    Squirrel solo_squirrel("Lonely Squirrel");
+    BinaryTree single_tree(solo_squirrel);
     std::cout << "Traversing single tree:" << std::endl;
     single_tree.traverse(single_tree.get_root());
-    std::cout << "Single node tree test completed.\n" << std::endl;
+    std::cout << "Single Node tree test completed.\n" << std::endl;
 
     std::cout << "Testing regular tree." << std::endl;
-    squirrel cheeks("Cheeks");
-    squirrel squeaks("Squeaks");
-    squirrel fluffy_butt("Mr. Fluffy Butt");
+    Squirrel cheeks("Cheeks");
+    Squirrel squeaks("Squeaks");
+    Squirrel fluffy_butt("Mr. Fluffy Butt");
 
-    binary_tree tree(cheeks);
-    node* root = tree.get_root();
-    node* left_child = new node(squeaks);
-    node* right_child = new node(fluffy_butt);
+    BinaryTree tree(cheeks);
+    Node* root = tree.get_root();
+    Node* left_child = new Node(squeaks);
+    Node* right_child = new Node(fluffy_butt);
 
     root->set_left(left_child);
     root->set_right(right_child);
@@ -33,45 +33,45 @@ int main() {
     std::cout << "Regular tree test completed.\n" << std::endl;
 
     std::cout << "Testing unbalanced tree." << std::endl;
-    squirrel root_squirrel("Cheeks");
-    squirrel right_squirrel1("Squeaks");
-    squirrel right_squirrel2("Mr. Fluffy Butt");
+    Squirrel root_squirrel("Cheeks");
+    Squirrel right_squirrel1("Squeaks");
+    Squirrel right_squirrel2("Mr. Fluffy Butt");
 
-    node* unbalanced_root = new node(root_squirrel);
-    node* right_child_node = new node(right_squirrel1);
-    node* right_child_two_node = new node(right_squirrel2);
+    Node* unbalanced_root = new Node(root_squirrel);
+    Node* right_child_Node = new Node(right_squirrel1);
+    Node* right_child_two_Node = new Node(right_squirrel2);
 
-    unbalanced_root->set_right(right_child_node);
-    right_child_node->set_right(right_child_two_node);
+    unbalanced_root->set_right(right_child_Node);
+    right_child_Node->set_right(right_child_two_Node);
 
     std::cout << "Traversing unbalanced tree:" << std::endl;
     tree.traverse(unbalanced_root);
     std::cout << "Unbalanced tree test completed.\n" << std::endl;
 
     std::cout << "Testing large tree." << std::endl;
-    squirrel cheeks1("Cheeks");
-    squirrel squeaks2("Squeaks");
-    squirrel fluffy_butt3("Mr. Fluffy Butt");
-    squirrel brandon("Brandon");
-    squirrel connor("Connor");
-    squirrel owen("Owen");
-    squirrel louis("Louis");
-    squirrel joey("Joey");
-    squirrel nolan("Nolan");
+    Squirrel cheeks1("Cheeks");
+    Squirrel squeaks2("Squeaks");
+    Squirrel fluffy_butt3("Mr. Fluffy Butt");
+    Squirrel brandon("Brandon");
+    Squirrel connor("Connor");
+    Squirrel owen("Owen");
+    Squirrel louis("Louis");
+    Squirrel joey("Joey");
+    Squirrel nolan("Nolan");
 
-    binary_tree large_tree(cheeks1);
-    node* root3 = large_tree.get_root();
+    BinaryTree large_tree(cheeks1);
+    Node* root3 = large_tree.get_root();
 
-    node* left_child3 = new node(squeaks2);
-    node* right_child3 = new node(fluffy_butt3);
+    Node* left_child3 = new Node(squeaks2);
+    Node* right_child3 = new Node(fluffy_butt3);
 
-    node* left_left = new node(brandon);
-    node* left_right = new node(connor);
-    node* right_left = new node(owen);
-    node* right_right = new node(louis);
+    Node* left_left = new Node(brandon);
+    Node* left_right = new Node(connor);
+    Node* right_left = new Node(owen);
+    Node* right_right = new Node(louis);
 
-    node* left_left_left = new node(joey);
-    node* right_right_right = new node(nolan);
+    Node* left_left_left = new Node(joey);
+    Node* right_right_right = new Node(nolan);
 
     root3->set_left(left_child3);
     root3->set_right(right_child3);
