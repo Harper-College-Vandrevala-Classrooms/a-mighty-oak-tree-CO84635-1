@@ -6,62 +6,68 @@
 class Node {
 private:
     Squirrel squirrel_data;
-    Node *left;
-    Node *right;
+    Node *left_squirrel;
+    Node *right_squirrel;
+
+    friend class BinaryTree;
 
 public:
     Node(Squirrel squirrel_object) {
         squirrel_data = squirrel_object;
-        left = nullptr;
-        right = nullptr;
+        left_squirrel = nullptr;
+        right_squirrel = nullptr;
     }
 
     Node(){
         squirrel_data = Squirrel();
-        left = nullptr;
-        right = nullptr;
+        left_squirrel = nullptr;
+        right_squirrel = nullptr;
     };
 
-    void set_left(Node squirrel_node) {
-        *left = squirrel_node;
+    void set_left(Node* squirrel_node) {
+        left_squirrel = squirrel_node;
     }
 
-    void set_right(Node squirrel_node){
-        *right = squirrel_node;
+    void set_right(Node* squirrel_node) {
+        right_squirrel = squirrel_node;
     }
 
-    Node left(){
-        return *left;
+    Node* left() {
+        return left_squirrel;
     }
 
-    Node right(){
-        return *right;
+    Node* right() {
+        return right_squirrel;
     }
 
-    std::string get_name(){
+    std::string get_name() {
         return squirrel_data.get_name();
     }   
 };
 
 class BinaryTree {
-public:
-    Node root;
+private:
+    Node* root;
 
-    BinaryTree(Squirrel squirrel_item){
-        root = Node(squirrel_item);
+public:
+    BinaryTree(Squirrel squirrel_item) {
+        root = new Node(squirrel_item);
     }
 
     BinaryTree() {
-        *root = nullptr;
+        root = nullptr;
     }
 
-    void traverse(Node node){
-        Node *ptr = &node;
-        if (ptr != nullptr){
-            std::cout << node.get_name() << std::endl;
-            traverse(ptr->left());
-            traverse(ptr->right());
+    void traverse(Node* node){
+        if (node != nullptr){
+            std::cout << node->get_name() << std::endl;
+            traverse(node->left());
+            traverse(node->right());
         }
+    }
+
+    Node* get_root() {
+        return root;
     }
 };
 
